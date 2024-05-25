@@ -45,13 +45,13 @@
 
   // Create a layer group and then read markers data from HEAT SHEET Gathering Spaces.csv
   // Using a layer group allows us to group these for the layer control
-  var hospitalLayer = L.layerGroup();
-  $.get('./data/NYChospitals.csv', function(csvString) {
+  var ArtinstallLayer = L.layerGroup();
+  $.get('./data/HEAT SHEET Gathering Spaces.csv', function(csvString) {
 
     // Use PapaParse to convert string to array of objects
     var data = Papa.parse(csvString, {header: true, dynamicTyping: true}).data;
 
-    // For each row in data, create a marker and add it to the hospital layer
+    // For each row in data, create a marker and add it to the Artinstall layer
     // For each row, columns `Latitude`, `Longitude` are used to position the marker, and name is used in the popup.
     for (var i in data) {
       var row = data[i];
@@ -60,14 +60,14 @@
         opacity: 1,
       }).bindPopup(row.name)
 
-      marker.addTo(hospitalLayer);
+      marker.addTo(ArtinstallLayer);
     }
 
   });
 
   // Add layers to map to show up by default
   light.addTo(map)
-  hospitalLayer.addTo(map)
+  ArtinstallLayer.addTo(map)
 
   // Set proper link to Github repo in attribution control
   map.attributionControl.setPrefix(
