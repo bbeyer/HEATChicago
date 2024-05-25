@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>leaflet-asset-map</title>
+  <title>SDOH_leaflet-asset-map</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta charset="utf-8">
 
@@ -30,7 +30,7 @@
 
   // Set up initial map center and zoom level
   var map = L.map('map', {
-    center: [40.71, -73.95], // EDIT latitude, longitude to re-center map
+    center: [41.8781, -87.6298], // EDIT latitude, longitude to re-center map
     zoom: 11,  // EDIT from 1 to 18 -- decrease to zoom out, increase to zoom in
     tap: false
   });
@@ -52,13 +52,13 @@
     var data = Papa.parse(csvString, {header: true, dynamicTyping: true}).data;
 
     // For each row in data, create a marker and add it to the hospital layer
-    // For each row, columns `LATITUDE`, `LONGITUDE` are used to position the marker, and FACNAME is used in the popup.
+    // For each row, columns `Latitude`, `Longitude` are used to position the marker, and name is used in the popup.
     for (var i in data) {
       var row = data[i];
 
-      var marker = L.marker([row.LATITUDE, row.LONGITUDE], {
+      var marker = L.marker([row.Latitude, row.Longitude], {
         opacity: 1,
-      }).bindPopup(row.FACNAME)
+      }).bindPopup(row.name)
 
       marker.addTo(hospitalLayer);
     }
