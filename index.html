@@ -66,9 +66,32 @@
 
   });
 
+//    var Artinstall2Layer = L.layerGroup();
+//  $.get('./data/HEAT SHEET Gathering Spaces.csv', function(csvString) {
+
+    // Use PapaParse to convert string to array of objects
+//    var data = Papa.parse(csvString, {header: true, dynamicTyping: true}).data;
+
+    // For each row in data, create a marker and add it to the Artinstall layer
+    // For each row, columns `Latitude`, `Longitude` are used to position the marker, and name is used in the popup.
+//    for (var i in data) {
+//      var row = data[i];
+
+//      var marker = L.marker([row.Latitude, row.Longitude], {
+//        opacity: 1,
+//      }).bindPopup(row.name)
+
+//      marker.addTo(ArtinstallLayer);
+//    }
+
+//  });
+
   // Add layers to map to show up by default
   light.addTo(map)
   ArtinstallLayer.addTo(map)
+  // Artinstall2Layer.addTo(map)
+
+    
 
   // Set proper link to Github repo in attribution control
   map.attributionControl.setPrefix(
