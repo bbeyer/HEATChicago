@@ -51,6 +51,42 @@
   var light = L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
     attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>, &copy; <a href="https://carto.com/attribution">CARTO</a>'
   });
+      
+    // Define the layer and apply icon to it 
+  var NeighborhoodLayer = new L.geoJson(null, {
+      style: {
+    "color": "#ff7800",
+    "weight": 5,
+    "opacity": 0.65
+},
+      
+       
+      onEachFeature: function (feature, layer) {
+      layer.bindPopup(feature.properties.name);
+    }
+  });
+  
+  // Load features from the geojson file into the layer
+  $.get({
+    dataType: "json",
+    url: "./data/chicago.geojson",
+    success: function(data) {
+        $(data.features).each(function(key, data) {
+          NeighborhoodLayer.addData(data);
+        });
+    }
+  });
+   
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
 
    // Overlay - Example1 of creating a layer from a CSV file
   var ArtIcon = L.AwesomeMarkers.icon({
@@ -110,7 +146,10 @@
      var marker = L.marker([row.Latitude, row.Longitude], {
         opacity: 1,
          icon:Art2Icon,
-      }).bindPopup(row.name)
+      }).bindPopup(`<h3>${row.name}</h3>
+      <img height=200 src="https://www.publicdomainpictures.net/pictures/30000/velka/tree-1332664495LMO.jpg"></img>
+      <p>${row.description}</p>`)
+    
 
       marker.addTo(Artinstall2Layer);
     }
@@ -138,14 +177,22 @@
     }
 
   });
+      
+  // **Add a GeoJSON layer of neighborhoods to underly the points
+ //     var Neighborhoodlayer = $.get('./data/chicago.geojson')
+      
+ // Add GeoJSOn lay to the map
+ //L.geoJSON(Neighborhoodlayer).addTo(map)
 
 
   // Add layers to map to show up by default
   light.addTo(map)
+      
+  NeighborhoodLayer.addTo(map)
   ArtinstallLayer.addTo(map)
   Artinstall2Layer.addTo(map)
   Artinstall3Layer.addTo(map)
-
+      
 
   // Create the layer control panel
  // var layerControl = L.control.layers( null, null, {
