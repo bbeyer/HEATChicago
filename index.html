@@ -50,6 +50,7 @@
   // see more basemap options at https://leaflet-extras.github.io/leaflet-providers/preview/
   var light = L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
     attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>, &copy; <a href="https://carto.com/attribution">CARTO</a>'
+ //attribution:'&copy; <a href="https://www.chicagotreeproject.org/wp-content/uploads/2020/07/cropped-site-icon-1-32x32.jpg" sizes="32x32"'
   });
       
     // Define the layer and apply icon to it 
@@ -112,11 +113,11 @@
       var marker = L.marker([row.Latitude, row.Longitude], {
         opacity: 1,
           icon:ArtIcon,
-      }).bindPopup(row.name)
+      }).bindPopup(`<h3>${row.name}</h3>
+      <p>${row.description}</p>`)
 
       marker.addTo(ArtinstallLayer);
     }
-
   });
 
    var Artinstall2Layer = L.layerGroup();
@@ -126,7 +127,9 @@
     var data = Papa.parse(csvString, {header: true, dynamicTyping: true}).data;
 
     // For each row in data, create a marker and add it to the Artinstall2 layer
-    // For each row, columns `Latitude`, `Longitude` are used to position the marker, and name is used in the popup.
+    // For each row, columns `Latitude`, `Longitude` are used to position the marker, and name, photo and description 
+    // are used in the popup.
+//
    for (var i in data) {
       var row = data[i];
 
@@ -134,10 +137,13 @@
         opacity: 1,
          icon:Art2Icon,
       }).bindPopup(`<h3>${row.name}</h3>
-      <img height=200 src="https://www.publicdomainpictures.net/pictures/30000/velka/tree-1332664495LMO.jpg"></img>
+      
+      
+      
+      <img height=200 src=https://www.natureregen.org/wp-content/uploads/2024/06/Emerald-Ash-Borer-Larvae.jpg"></img>    
+      
+      
       <p>${row.description}</p>`)
-    
-
       marker.addTo(Artinstall2Layer);
     }
 
@@ -157,8 +163,9 @@
 
      var marker = L.marker([row.Latitude, row.Longitude], {
         opacity: 1,
-         icon:Art3Icon,
-      }).bindPopup(row.name)
+         icon:Art3Icon,   
+     }).bindPopup(`<h3>${row.name}</h3>
+      <p>${row.description}</p>`)
 
       marker.addTo(Artinstall3Layer);
     }
