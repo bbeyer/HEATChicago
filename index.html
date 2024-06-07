@@ -105,7 +105,7 @@
   // Create a layer group and then read markers data from HEAT SHEET Gathering Spaces.csv
   // Using a layer group allows us to group these for the layer control
   var ArtinstallLayer = L.layerGroup();
-  $.get('./data/HEAT SHEET Gathering Spaces.csv', function(csvString) {
+  $.get('./data/HEAT Data Gathering Spaces 6_7.csv', function(csvString) {
 
     // Use PapaParse to convert string to array of objects
     var data = Papa.parse(csvString, {header: true, dynamicTyping: true}).data;
@@ -143,11 +143,7 @@
          icon:Art2Icon,
       }).bindPopup(`<h3>${row.name}</h3>
       
-    
-      
-      <img height=200 src=https://www.natureregen.org/wp-content/uploads/2024/06/Emerald-Ash-Borer-Larvae.jpg"></img>    
-      <img height=200 src="${row.photo}"></img>    
-      
+        <img height=200 src="${row.photo}"></img>    
       
       <p>${row.description}</p>`)
       marker.addTo(Artinstall2Layer);
