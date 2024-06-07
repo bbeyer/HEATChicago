@@ -126,7 +126,7 @@
   });
 
    var Artinstall2Layer = L.layerGroup();
-  $.get('./data/HEAT SHEET Chicago Tree Project.csv', function(csvString) {
+  $.get('./data/HEAT Data Trees 6_7.csv', function(csvString) {
 
     // Use PapaParse to convert string to array of objects
     var data = Papa.parse(csvString, {header: true, dynamicTyping: true}).data;
