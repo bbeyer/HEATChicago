@@ -119,16 +119,10 @@
         opacity: 1,
           icon:ArtIcon,
       }).bindPopup(`<h3>${row.name}</h3>
-      
-        <img height=100 src="${row.photo}"></img>  
-        
-        <p>${row.artist}</p>
-      
+        <img height=100 src="${row.photo}"></img>     
+        <p>${row.artist}</p>    
       <p>${row.description}</p>
-      
       <p>${row.activity}</p>`)
-      
-
       marker.addTo(ArtinstallLayer);
     }
   });
@@ -176,7 +170,10 @@
         opacity: 1,
          icon:Art3Icon,   
      }).bindPopup(`<h3>${row.name}</h3>
-      <p>${row.description}</p>`)
+     
+        <img height=170 src="${row.photo}"></img>    
+     
+      <p>${row.activity}</p>`)
 
       marker.addTo(Artinstall3Layer);
     }
