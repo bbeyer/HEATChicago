@@ -155,7 +155,9 @@
   
         <img height=170 src="${row.photo}"></img>    
       
-      <p>${row.description}</p>`)
+      <p>${row.description}</p>
+      <p>${row.activity}</p>`)
+
       marker.addTo(Artinstall2Layer);
     }
 
@@ -163,7 +165,7 @@
       
       
         var Artinstall3Layer = L.layerGroup();
-  $.get('./data/HEAT Data 6_11 Garden.csv', function(csvString) {
+  $.get('./data/HEAT Data 6_11 Gardens.csv', function(csvString) {
 
     // Use PapaParse to convert string to array of objects
     var data = Papa.parse(csvString, {header: true, dynamicTyping: true}).data;
