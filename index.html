@@ -105,7 +105,7 @@
   // Create a layer group and then read markers data from HEAT SHEET Gathering Spaces.csv
   // Using a layer group allows us to group these for the layer control
   var ArtinstallLayer = L.layerGroup();
-  $.get('./data/HEAT Data Gathering Spaces 6_7.csv', function(csvString) {
+  $.get('./data/HEAT Data 6_10 Gathering Spaces.csv', function(csvString) {
 
     // Use PapaParse to convert string to array of objects
     var data = Papa.parse(csvString, {header: true, dynamicTyping: true}).data;
@@ -126,7 +126,7 @@
   });
 
    var Artinstall2Layer = L.layerGroup();
-  $.get('./data/HEAT Data Trees 6_7.csv', function(csvString) {
+  $.get('./data/HEAT Data 6_10 Chicago Tree Project.csv', function(csvString) {
 
     // Use PapaParse to convert string to array of objects
     var data = Papa.parse(csvString, {header: true, dynamicTyping: true}).data;
@@ -144,7 +144,7 @@
       }).bindPopup(`<h3>${row.name}</h3>
       <p>${row.artist}</p>
   
-        <img height=200 src="${row.photo}"></img>    
+        <img height=170 src="${row.photo}"></img>    
       
       <p>${row.description}</p>`)
       marker.addTo(Artinstall2Layer);
@@ -154,7 +154,7 @@
       
       
         var Artinstall3Layer = L.layerGroup();
-  $.get('./data/HEAT SHEET Gardens.csv', function(csvString) {
+  $.get('./data/HEAT Data 6_10 Gardens.csv', function(csvString) {
 
     // Use PapaParse to convert string to array of objects
     var data = Papa.parse(csvString, {header: true, dynamicTyping: true}).data;
