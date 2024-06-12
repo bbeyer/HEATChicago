@@ -60,10 +60,10 @@
       
     // Define the layer and apply icon to it 
   var NeighborhoodLayer = new L.geoJson(null, {
-    style: {
-    "color": "#90664b",
-    "weight": 2,
-    "opacity": 0.35
+   style: {
+   // "color": "#90664b",
+  //  "weight": 2,
+  //  "opacity": 0.35
 },
 //bind the name of the properties
       onEachFeature: function (feature, layer) {
@@ -112,7 +112,7 @@
   // Create a layer group and then read markers data from HEAT SHEET Gathering Spaces.csv
   // Using a layer group allows us to group these for the layer control
   var ArtinstallLayer = L.layerGroup();
-  $.get('./data/HEAT Data 6_10 Gathering Spaces.csv', function(csvString) {
+  $.get('./data/HEAT Data 6_12 Gathering Spaces.csv', function(csvString) {
 
     // Use PapaParse to convert string to array of objects
     var data = Papa.parse(csvString, {header: true, dynamicTyping: true}).data;
@@ -135,7 +135,7 @@
   });
 
    var Artinstall2Layer = L.layerGroup();
-  $.get('./data/HEAT Data 6_11 Chicago Tree Project.csv', function(csvString) {
+  $.get('./data/HEAT Data 6_12 Trees.csv', function(csvString) {
 
     // Use PapaParse to convert string to array of objects
     var data = Papa.parse(csvString, {header: true, dynamicTyping: true}).data;
@@ -165,7 +165,7 @@
       
       
         var Artinstall3Layer = L.layerGroup();
-  $.get('./data/HEAT Data 6_11 Gardens.csv', function(csvString) {
+  $.get('./data/HEAT Data 6_12 Gardens allpics.csv', function(csvString) {
 
     // Use PapaParse to convert string to array of objects
     var data = Papa.parse(csvString, {header: true, dynamicTyping: true}).data;
